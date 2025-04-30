@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dispositivo Informações</h1>
+    <ol>
+        <li>CD</li>
+        <li>DVD</li>
+        <li>Fita Cassete</li>
+    </ol>
+    Dipositivo: <input type="text" id="disp" placeholder="Digite aqui">
+    <button onclick="encontrar()">Buscar</button><br>
+    <label>Escolha seu disposito:</label>
+
+    <div id="txt"></div>
+
+    <script>
+        let dispositivo = "";
+
+        function encontrar(){
+            dispositivo = document.getElementById("disp").value.toUpperCase();
+            let ans = ""; 
+            if (dispositivo == "CD") {
+                ans = 'O Compact Disc (CD ou "Disco Compacto") é um disco óptico digital de armazenamento de dados. O formato foi originalmente desenvolvido com o propósito de armazenar e tocar apenas músicas, mas posteriormente foi adaptado para o armazenamento de dados, o CD-ROM.';
+            } else if (dispositivo == "DVD") {
+                ans = 'Um DVD, ou Disco Digital Versátil, é um tipo de disco óptico introduzido no final dos anos 90, projetado para armazenar e reproduzir conteúdo de vídeo e áudio. Os DVDs geralmente têm um diâmetro de 12 cm e podem armazenar até 4,7 GB de dados, embora existam DVDs de camada dupla que podem conter até 8,5 GB';
+            } else if (dispositivo == "FITA CASSETE") {
+                ans = 'A fita cassete é um meio de armazenamento de áudio analógico que foi amplamente utilizado entre os anos 70 e 90. Ela consiste em uma fita magnética contida em um invólucro plástico.';
+            } else {
+                ans = 'Dispositivo não encontrado.';
+            }
+            document.getElementById("txt").innerText = ans; 
+        }
+    </script>
+
+</body>
+</html>
