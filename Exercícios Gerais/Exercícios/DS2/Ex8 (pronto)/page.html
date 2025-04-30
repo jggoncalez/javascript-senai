@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Bom Sabor</title>
+</head>
+<body>
+    <script>
+        const pizzaSizes = ["Pequena", "Média", "Grande"];
+        let clientOrder = [];
+
+        function menuPrinc() {
+            let escolha = parseInt(prompt(`Bem-vindo à Pizzaria Bom Sabor\n
+            Escolha o tamanho da pizza:\n
+            1. Pequena\n
+            2. Média\n
+            3. Grande\n`));
+            
+            if (escolha >= 1 && escolha <= 3) {
+                clientOrder.push(pizzaSizes[escolha - 1]); // ele vai caçar o número digitado pelo cliente na array pizzaSizes
+            } else {
+                alert("Opção inválida. Por favor, escolha uma opção válida."); // caso o número não exista, tente novamente
+                menuPrinc();
+            }
+
+            let retorno = prompt("Deseja pedir mais uma pizza? (y/n)"); // para pedir mais pizzas
+            if (retorno === 'y') {
+                menuPrinc();
+            } else {
+                checkBrinde();
+            }
+        }
+
+        function verificarBrinde() { // verifica os brindes que ele pode receber, dependendo do pedido
+            let quantidadePequena = 0, quantidadeMedia = 0, quantidadeGrande = 0;
+            for (let i = 0; i < pedidoCliente.length; i++) {
+            if (pedidoCliente[i] === "Pequena") quantidadePequena++;
+            else if (pedidoCliente[i] === "Média") quantidadeMedia++;
+            else if (pedidoCliente[i] === "Grande") quantidadeGrande++;
+            }
+
+            if (quantidadeGrande >= 2) { // 2 pizzas grandes
+            alert("Parabéns! Você ganhou um refrigerante de 2 litros!");
+            } else if (quantidadeMedia >= 1 && quantidadePequena >= 1) { // 1 pizza média e 1 pequena
+            alert("Parabéns! Você ganhou uma porção de pão de alho!");
+            } else { //sinto muito
+            alert("Obrigado pelo pedido! Você não ganhou nenhum brinde desta vez.");
+            }
+
+            let retorno = prompt("Deseja fazer um novo pedido? (y/n)");
+            if (retorno === 'y') {
+            pedidoCliente = [];
+            menuPrinc();
+            } else {
+            alert("Obrigado por visitar a Pizzaria Bom Sabor!");
+            }
+        }
+
+        menuPrinc();
+    </script>
+</body>
+</html>

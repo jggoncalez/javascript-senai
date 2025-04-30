@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema CineShow</title>
+</head>
+<body>
+    <script>
+        function calcularPrecoIngresso() {
+            const idade = parseInt(prompt("Informe a sua idade:"));
+            const estudante = prompt("Você é estudante com carteirinha? (y/n)").toLowerCase();
+
+            const precoInteira = 20; // exemplo de valor do ingresso inteiro
+
+            if (idade <= 12 || idade >= 60 || estudante === "y") { //supondo que para ser criança tem que ser menor de 12, e idoso maior de 60
+                precoIngresso = precoInteira / 2; //meia entrada
+                alert(`Você paga meia entrada. O valor do ingresso é R$${precoIngresso.toFixed(2)}.`);
+            } else { //se não...
+                precoIngresso = precoInteira; // entrada inteira
+                alert(`Você paga entrada inteira. O valor do ingresso é R$${precoIngresso.toFixed(2)}.`);
+            }
+        }
+        calcularPrecoIngresso();
+    </script>
+</body>
+</html>

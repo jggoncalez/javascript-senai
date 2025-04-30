@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Semáforo</h1>
+    <input type="text" id="valSem" placeholder="Digite o número correspondente ao desejado">
+    <button onclick="medValor()">OK</button>
+    <p id="ans"></p>
+    
+    <script>
+        function medValor() {
+            let numSel = parseInt(document.getElementById("valSem").value);
+
+            if (numSel === 1) {
+                document.getElementById("ans").innerHTML = "Vermelho";
+            } else if (numSel === 2) {
+                document.getElementById("ans").innerHTML = "Laranja";
+            } else if (numSel === 3) {
+                document.getElementById("ans").innerHTML = "Verde";
+            } else {
+                document.getElementById("ans").innerHTML = "Inválido";
+            }
+        }
+    </script>
+</body>
+</html>

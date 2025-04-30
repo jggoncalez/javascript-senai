@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retornar somente o maior valor da lista</title>
+</head>
+<body>
+    <input type ="text" id="valSel" placeholder="Digite 9 valores separados por vírgula (3x3)">
+    <button onclick="maiorValue()">OK</button>
+    <p id="ansMaior"></p>
+
+    <script>
+        function maiorValue(){
+            const vetor = document.getElementById("valSel").value.split(",").map(Number);
+            let maior = vetor[0]
+            for (let i = 0; i < vetor.length; i++){
+                if (vetor[i] > maior){
+                   maior = vetor[i] 
+                }
+            }
+            document.getElementById("ansMaior").innerHTML = "O maior valor é " + maior;
+        }
+    </script>
+</body>
+</html>

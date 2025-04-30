@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meses do ano</title>
+</head>
+<body>
+    <h1> Checa Mês</h1>
+    <input type="text" id="valMes" placeholder="Digite o número do mês desejado">
+    <button onclick="checkmes()">OK</button>
+    <p id="ansMes"></p>
+    
+    <script>
+      mes = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+      
+      function checkmes(){
+        const valMes = parseInt(document.getElementById("valMes").value, 10);
+        if (valMes >= 1 && valMes <= 12) {
+          const Selmes = mes[valMes - 1];
+          document.getElementById("ansMes").innerHTML = "O mês é " + Selmes;
+        } else {
+          document.getElementById("ansMes").innerHTML = "Por favor, insira um número entre 1 e 12.";
+        }
+      }
+    </script>
+</body>
+</html>

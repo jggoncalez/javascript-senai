@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem Parar</title>
+</head>
+
+<body>
+    <h1>Sem Parar</h1>
+    
+    <label>Placa do carro:</label>
+    <input type="text" id="valPlaca" placeholder="aaa0000"> <!--esse eu quis fazer bonitinho-->
+    <button onclick="checkPlaca()">OK</button>
+    
+    <p id="ansPlaca"></p>
+
+    <script>
+        function checkPlaca(){
+            const valPlaca = document.getElementById("valPlaca").value; //verifica o valor da placa inserido
+            const placaLetras = valPlaca.slice(0, 3).toUpperCase() //aqui ele vai pegar só o começo da placa (ABC por exemplo)
+            
+            // Checar se a placa começa com ABC ou não
+            if (placaLetras === "ABC"){
+                document.getElementById("ansPlaca").innerHTML = "Parabéns! Você foi contemplado com um desconto de 100% no SEM PARAR!";   
+            } else {
+                document.getElementById("ansPlaca").innerHTML = "Por favor, pague a tarifa: R$ 1,00" //que pena
+            }
+        }
+
+
+    </script>
+</body>
+</html>

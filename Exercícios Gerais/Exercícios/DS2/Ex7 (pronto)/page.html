@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorveteria</title>
+</head>
+
+<body>
+    <h1>Sorveteria</h1>
+    <div>
+        <div>
+        <label>Casquinha:</label>
+        <input type="checkbox" id="casquinha" name="sorvete" value="querCasq" onclick="apenasUmCheck(this)">
+        </div>
+        <div>
+        <label>Picolé:</label>
+        <input type="checkbox" id="picole" name="sorvete" value="querPic" onclick="apenasUmCheck(this)">
+        </div>
+    </div>
+    <button onclick="checkSorv()">Enviar Pedidos</button>
+    <p id="ansSorv"></p>
+
+    <script>
+        function apenasUmCheck(checkbox) { // permite que apenas uma checkbox seja selecionada
+            document.getElementsByName(checkbox.name).forEach(item => 
+            item.checked = item === checkbox); // vou levar essa function pra vida
+        }
+        
+        function checkSorv(){ 
+            let varCasquinha = document.getElementById("casquinha")             
+            let varPicole = document.getElementById("picole") 
+            
+            if (varCasquinha.checked === true){
+                document.getElementById("ansSorv").innerHTML = "Parabéns! Você recebeu mais uma casquinha pelo seu pedido!";   
+            } else if (varPicole.checked === true) {
+                document.getElementById("ansSorv").innerHTML = "Parabéns! Você recebeu um cupom de desconto!";
+            } else {
+                document.getElementById("ansSorv").innerHTML = "Por favor, escolha uma opção"; // tem que pedir alguma coisa
+            }
+        }
+        // nem acredito que deu certo, não invento mais moda não
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular a média de um vetor</title>
+</head>
+<body>
+    <h1>Calcular média de vetor</h1>
+    <input type="text" id="valVetor" placeholder="Digite 9 números separados por vírgula">
+    <button onclick="medValor()">OK</button>
+    <p id="ansVet"></p>
+    
+    <script>
+        function medValor(){
+            let vetor = document.getElementById("valVetor").value.split(",").map(Number);
+            let soma = 0;
+            for (let i = 0; i < vetor.length; i++){
+                soma += vetor[i];
+            }
+            let media = soma / vetor.length;
+            document.getElementById("ansVet").innerHTML = "Média: " + media;
+        }
+    </script>
+</body>
+</html>

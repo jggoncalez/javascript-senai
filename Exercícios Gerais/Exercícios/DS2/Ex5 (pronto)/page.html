@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportadora</title>
+</head>
+<body>
+    <script>
+        function checkSigla(){
+            let ansUsuario = prompt(`Seja bem-vindo ao sistema LOGI MAIS!\n
+            Digite a sigla desejada para souber o estado em que o pedido se localiza`) // UI e UX (eu acho)
+
+            if (ansUsuario == "AB"){ // AB = SP
+                alert("O produto se localiza em São Paulo!")
+            } else if (ansUsuario == "CD"){ // CD = RJ
+                alert("O produto se localiza no Rio de Janeiro!")
+            } else if (ansUsuario == "EF"){ // EF = MG
+                alert("O produto se localiza em Minas Gerais!")
+            } else {
+                alert("Código incorreto, tente novamente")
+                checkSigla()
+            }
+        }
+        checkSigla()
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja X</title>
+</head>
+<body>
+    <img src="https://gabor.com.vc/wp-content/uploads/2023/06/finalizada.png"> <!-- não pergunta -->
+    <script>
+        let prodName = [];
+        let prodPrice = [];
+        function cadastroPreco(){
+            for (let i = 0; i<10; i++){
+                let nameAns = prompt(`Dê o nome do produto ${i+1}: `);
+                prodName.push(nameAns);
+                let priceAns = parseFloat(prompt(`Dê o valor do produto ${i+1}: `));
+                prodPrice.push(priceAns);
+            }
+            listPreco();
+        }
+        
+        function listPreco(){
+        resp = prompt(`Produtos da loja: \n
+        1. ${prodName[0]} - R$${prodPrice[0].toFixed(2)}\n
+        2. ${prodName[1]} - R$${prodPrice[1].toFixed(2)}\n
+        3. ${prodName[2]} - R$${prodPrice[2].toFixed(2)}\n
+        4. ${prodName[3]} - R$${prodPrice[3].toFixed(2)}\n
+        5. ${prodName[4]} - R$${prodPrice[4].toFixed(2)}\n
+        6. ${prodName[5]} - R$${prodPrice[5].toFixed(2)}\n
+        7. ${prodName[6]} - R$${prodPrice[6].toFixed(2)}\n
+        8. ${prodName[7]} - R$${prodPrice[7].toFixed(2)}\n
+        9. ${prodName[8]} - R$${prodPrice[8].toFixed(2)}\n
+        10. ${prodName[9]} - R$${prodPrice[9].toFixed(2)}\n
+        Deseja aumentar o preço dos produtos 1 e 10? (y/n)`);
+        if (resp === "y"){
+        trocaPreco()
+        } else {
+            alert("Processo finalizado!")
+        }   
+    }
+    function trocaPreco(){
+        prodPrice[0] = prodPrice[0] * 1.1
+        prodPrice[9] = prodPrice[9] * 1.1
+        alert("Troca realizada")
+        respn = prompt("Retornar à lista? (y/n)")
+        if (respn === "y"){
+            listPreco()
+        } else{
+            alert("Processo finalizado!")
+        }
+        
+    }
+    cadastroPreco()
+        
+    </script>
+</body>
+</html>

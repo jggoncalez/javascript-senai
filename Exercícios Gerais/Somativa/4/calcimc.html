@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>IMC</h1>
+    <div>
+        <div>
+            <label>Nome:</label>
+            <input type="text" id="name" placeholder="Insira o nome">
+        </div><div>
+            <label>Peso: </label>
+            <input type="text" id="valPes" placeholder="Digite o peso">
+        </div><div>
+            <label>Altura:</label>
+            <input type="text" id="valAlt" placeholder="Digite a altura">
+        </div>
+        <button onclick="medIMC()">OK</button>
+    </div>
+    <p id="ans"></p>
+    <script>
+        function medIMC(){
+            let peso = parseFloat(document.getElementById("valPes").value)
+            let altura = parseFloat(document.getElementById("valAlt").value)
+            calcIMC(peso, altura)
+        }
+
+        function calcIMC(peso, altura){
+            let doc = document.getElementById("ans")
+            let name = document.getElementById("name").value
+            let imc = (peso / Math.pow(altura, 2))
+            if (imc >= 30){
+                doc.innerHTML = `${name}, você está obeso!` 
+            } else if (imc >= 25){
+                doc.innerHTML = `${name}, você está com sobrepeso!`
+            } else if (imc >= 18.5){
+                doc.innerHTML = `${name}, você está normal!`
+            } else {
+                doc.innerHTML = `${name}, você está abaixo do peso!`
+            }
+        }
+
+    </script>
+</body>
+</html>

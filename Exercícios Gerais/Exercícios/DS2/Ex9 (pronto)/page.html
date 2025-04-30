@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Leitura Feliz</title>
+</head>
+<body>
+    <script>
+        let limiteLivros = 0 // só uma variável pra usar depois
+
+        function verificarEmprestimo() {
+            const tipoUsuario = prompt(`Informe o tipo de usuário:\n
+            1. Estudante\n
+            2. Professor\n
+            3. Visitante\n`);
+            
+            const quantidadeLivros = parseInt(prompt("Quantos livros deseja pegar emprestado?"));
+            
+            if (tipoUsuario === '1') { // estudante só pode emprestar 3 livros
+                limiteLivros = 3;
+            } else if (tipoUsuario === '2') { // professor, 5
+                limiteLivros = 5;
+            } else if (tipoUsuario === '3') { // agora um visitante, pode só 1
+                limiteLivros = 1;
+            } else {
+                alert("Tipo de usuário inválido."); // caso haja um número diferente de 1...3: mensagem de erro e retornar ao início
+                return verificarEmprestimo();
+            }
+
+            if (quantidadeLivros <= limiteLivros) { // verificação do limite de livros
+                alert("Empréstimo permitido!");
+            } else {
+                alert(`Empréstimo não permitido. O limite para este tipo de usuário é de ${limiteLivros} livro(s).`);
+            }
+        }
+
+        verificarEmprestimo(); // chama a função
+    </script>
+</body>
+</html>

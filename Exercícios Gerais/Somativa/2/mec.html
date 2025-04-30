@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecânica do Zé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu">
+        <div>
+            <h2>Escolha o seu serviço:</h2>
+            <label>Nome:</label>
+            <input type="text" id="nome"> <!-- Adicionado o ID para capturar o valor -->
+            <ol>
+                <li>Troca de óleo</li>
+                <button onclick="trocaOleo()">Escolher</button> <!-- Corrigido para chamar a função correta -->
+                <li>Alinhamento e balanceamento</li>
+                <button onclick="alinhamento()">Escolher</button> <!-- Corrigido para chamar a função correta -->
+                <li>Revisão completa</li>
+                <button onclick="revisao()">Escolher</button> <!-- Corrigido para chamar a função correta -->
+            </ol>
+        </div>
+    </div>
+    <p id="resultado"></p>
+    <script>
+        function trocaOleo() {
+    let nome = document.getElementById("nome").value; // Adicionado .value para capturar o valor do input
+    let ress = document.getElementById("resultado"); // Corrigido para getElementById
+
+    ress.innerHTML = `<p>Serviço: Troca de óleo</p>
+    <p>Cliente: ${nome}</p>`; // Exibe o nome do cliente corretamente
+}
+
+function alinhamento() {
+    let nome = document.getElementById("nome").value;
+    let ress = document.getElementById("resultado");
+
+    ress.innerHTML = `<p>Serviço: Alinhamento e balanceamento</p>
+    <p>Cliente: ${nome}</p>`;
+}
+
+function revisao() {
+    let nome = document.getElementById("nome").value;
+    let ress = document.getElementById("resultado");
+
+    ress.innerHTML = `<p>Serviço: Revisão completa</p>
+    <p>Cliente: ${nome}</p>`;
+}
+    </script>
+</body>
+</html>

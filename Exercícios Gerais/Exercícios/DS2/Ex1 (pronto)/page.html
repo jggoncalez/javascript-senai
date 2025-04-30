@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Café Expresso</title>
+</head>
+<body>
+    <script>
+        const prodPrice = [5, 8, 7.5, 4];
+        let clientEscolha = [];
+        
+        function menuPrinc(){ // menu com cardápio de pedidos
+            let escolha = parseInt(prompt(`Seja bem-vindo à Cafeteria Café Expresso\n
+            O que deseja?\n
+            1. Café Expresso: R$ 5.00\n
+            2. Capuccino: R$ 8.00\n
+            3. Chocolate Quente: R$ 7.50\n
+            4. Chá: R$ 4.00\n`))
+            if (escolha == 1 || escolha == 2 || escolha == 3 || escolha == 4){
+                clientEscolha.push(escolha); // lança os pedidos do cliente em uma array
+            } else{
+                alert("Opção inválida. Por favor, escolha uma opção válida."); //caso o número digitado seja fora de 1...4, repetir o menu
+                menuPrinc()
+            }
+            
+            let retorno = prompt("Deseja fazer mais um pedido? (y/n)"); // sempre bom pedir mais coisas, dá mais dinheiro pra cafeteria
+            if (retorno === 'y') {
+                menuPrinc()
+            } else{
+                calcPedido()
+            }
+        }
+
+        function calcPedido(){
+            console.log(clientEscolha)
+
+            let total = 0;
+            clientEscolha.forEach(element => {
+                total += prodPrice[element - 1]; // caça o pedido na array de preços, retornando o valor total
+            });
+            alert(`Total: R$ ${total.toFixed(2)}`);
+            let retorno = prompt("Deseja fazer mais um novo pedido? (y/n)"); //quem sabe o cliente não muda de ideia e faz mais um pedido?
+            if (retorno === 'y') { 
+                clientEscolha = [];
+                menuPrinc();
+            } else {
+                alert("Obrigado por visitar a Cafeteria Café Expresso!");
+            }
+        }
+
+        menuPrinc()
+    </script>
+</body>
+</html>

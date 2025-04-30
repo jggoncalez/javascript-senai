@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+</head>
+<body>
+    <script>
+        prodArm = []
+        qtt = []
+
+        function escolha(){
+            a = prompt(`Seja bem-vindo! \n
+            Escolha o que deseja fazer:\n
+        1. Adicionar item(s) no estoque\n
+        2. Checar estoque\n
+        3. Pendências\n
+        4. Sair`)
+            if (a == 1){addItem()}
+            else if (a == 2){check()}
+            else if (a == 3){pendencias()}
+            else{}
+        }
+
+        function addItem(){
+            quantAdicao = parseInt(prompt("Quantos itens deseja adicionar?"))
+            for (i = 0; i < quantAdicao; i++){
+                ans = prompt(`Dê o nome do produto ${i+1}: `)
+                prodArm.push(ans)
+                ansqtt = parseInt(prompt(`Dê a quantidade do produto no estoque: `))
+                qtt.push(ansqtt)
+            }
+            escolha()
+        }
+
+        function check(){
+            let stockList = "Produtos no estoque:\n";
+            for (let i = 0; i < prodArm.length; i++) {
+            stockList += `${prodArm[i]}: ${qtt[i]}\n`;
+            }
+            alert(stockList);
+            escolha();
+        }
+        function pendencias(){
+            let poucoestoque = qtt.findIndex((element) => element < 30);
+            if (poucoestoque !== -1) {
+            alert(`Produto com baixa quantidade: ${prodArm[poucoestoque]}`);
+            } else {
+            alert("Todos os produtos têm quantidade suficiente.");
+            }
+            escolha();
+        }
+        escolha()
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encomendas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Encomenda</h1>
+    <div class="principal">
+        <div>
+            <div>
+                <label>Nome do produto:</label>
+                <input type="text" id="nomeProd" placeholder="Insira o nome do produto">
+            </div>
+            <div>
+                <label>Código do produto: </label>
+                <input type="text" id="codProd" placeholder="Insira o código do produto">
+            </div>
+            <div>
+                <label>Quantidade:</label>
+                <input type="text" id="qtt" placeholder="Insira a quantidade">
+            </div>
+            <div>
+                <label>Destino:</label>
+                <input type="text" id="dest" placeholder="Insira o destino">
+            </div>
+        </div>
+        <button onclick="cadastEncomenda()">OK</button>
+        <p id="ans"></p>
+    </div>
+
+
+    <script>
+        function cadastEncomenda(){
+            let nome = document.getElementById("nomeProd").value || "null";
+            let cod = parseFloat(document.getElementById("codProd").value) || 0;
+            let quantidade = parseFloat(document.getElementById("qtt").value) || 0;
+            let destino = document.getElementById("dest").value || "null"; 
+            document.getElementById("ans").innerHTML = `Reserva feita!<br> 
+                                                        Nome do produto: ${nome}<br>
+                                                        Código do produto: ${cod}<br>
+                                                        Quantidade: ${quantidade}<br>
+                                                        Destino: ${destino}`;
+        }
+    </script>
+</body>
+</html>
